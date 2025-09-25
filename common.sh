@@ -10,7 +10,7 @@ SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 START_TIME=$(date +%s)
 SCRIPT_DIR=$PWD
-MONGODB_HOST=172.31.23.52
+MONGODB_HOST=mongodb.172.31.23.52
 
 USERID=$(id -u)
 
