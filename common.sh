@@ -46,6 +46,15 @@ nodejs_setup(){
     VALIDATE $? "Install dependencies"
 }
 
+java_setup(){
+    dnf install maven -y &>>$LOG_FILE
+    VALIDATE $? "Installing Maven"
+    # useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
+    mvn clean package &>>$LOG_FILE
+    VALIDATE $? "Packing the application"
+    mv target/shipping-1.0.jar shipping.jar &>>$LOG_FILE
+    VALIDATE $? "Renaming the artifact"
+}
 
 app_setup(){
     id roboshop &>>LOG_FILE
@@ -55,7 +64,7 @@ app_setup(){
     else 
         echo -e "User already exists... $Y SKIPPING $N"
     fi
-    
+
     mkdir -p /app 
     VALIDATE $? "Creating app directory"
 
