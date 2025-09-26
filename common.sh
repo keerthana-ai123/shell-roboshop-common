@@ -11,6 +11,7 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 START_TIME=$(date +%s)
 SCRIPT_DIR=$PWD
 MONGODB_HOST=172.31.23.52
+MYSQL_HOST=mysql.techevolv.fun
 
 USERID=$(id -u)
 
